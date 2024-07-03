@@ -13,7 +13,7 @@
         <properties>
             <!-- MySQL -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/BDMARCANOABREU" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/BDMARCANOABREUCL3" />
             <property name="javax.persistence.jdbc.user" value="root" />
             
             

@@ -13,7 +13,7 @@ public class ClassUsuarioImp implements IUsuario {
 
 	@Override
 	public void RegistrarUsuario(TblUsuariocl3 usuario) {
-		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL2_MARCANOABREUJESUSFRANCISCO");
+		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL3_MARCANOABREUJESUSFRANCISCO");
 		EntityManager em=fabr.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(usuario);
@@ -25,14 +25,47 @@ public class ClassUsuarioImp implements IUsuario {
 	@Override
 	public List<TblUsuariocl3> ListadoUsuario() {
 		//Gestionamos la entidad
-		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL2_MARCANOABREUJESUSFRANCISCO");
+		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL3_MARCANOABREUJESUSFRANCISCO");
 		EntityManager em=fabr.createEntityManager();
 		em.getTransaction().begin();
 		//Recuperamos los datos
-		List<TblUsuariocl3> listadoUsuarios=em.createQuery("select u from TblUsuariocl2 u", TblUsuariocl3.class).getResultList();
+		List<TblUsuariocl3> listadoUsuarios=em.createQuery("select u from TblUsuariocl3 u", TblUsuariocl3.class).getResultList();
 		em.getTransaction().commit();
 		em.close();
 		return listadoUsuarios;
+	}
+
+	@Override
+	public void ActualizarUsuario(TblUsuariocl3 usuario) {
+		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL3_MARCANOABREUJESUSFRANCISCO");
+		EntityManager em=fabr.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(usuario);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	@Override
+	public void EliminarUsuario(TblUsuariocl3 usuario) {
+		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL3_MARCANOABREUJESUSFRANCISCO");
+		EntityManager em=fabr.createEntityManager();
+		em.getTransaction().begin();
+		TblUsuariocl3 elim=em.merge(usuario);
+		em.remove(elim);
+		System.out.println("Usuario eliminado de la base de datos");
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	@Override
+	public TblUsuariocl3 BuscarUsuario(TblUsuariocl3 usuario) {
+		EntityManagerFactory fabr= Persistence.createEntityManagerFactory("LPII_CL3_MARCANOABREUJESUSFRANCISCO");
+		EntityManager em=fabr.createEntityManager();
+		em.getTransaction().begin();
+		TblUsuariocl3 buscarUsuario=em.find(TblUsuariocl3.class, usuario.getIdusuariocl3());
+		em.getTransaction().commit();
+		em.close();
+		return buscarUsuario;
 	}
 
 }

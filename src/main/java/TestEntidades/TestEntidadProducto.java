@@ -12,11 +12,11 @@ public class TestEntidadProducto {
 		ClassProductoImp crud= new ClassProductoImp();
 		
 		//asignamos valores
-		producto.setNombrecl3("ejemplo12");
-		producto.setDescripcl3("example");
-		producto.setEstadocl3("Muy nuevo");
-		producto.setPreciocompcl3(1585);
-		producto.setPrecioventacl3(5000);
+		producto.setNombrecl3("ejemplo1");
+		producto.setDescripcl3("example1");
+		producto.setEstadocl3("Viejo");
+		producto.setPreciocompcl3(10);
+		producto.setPrecioventacl3(100);
 		
 		//invocamos el metodo registrar
 		crud.RegistrarProducto(producto);
