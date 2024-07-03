@@ -7,8 +7,8 @@
     <persistence-unit name="LPII_CL3_MARCANOABREUJESUSFRANCISCO">
         <!-- propiedades o configuración de la conexión a BASE DE DATOS -->
         
-        <class>model.TblProductocl3</class>
-        <class>model.TblUsuariocl3</class>
+        <class>modelo.TblProductocl3</class>
+        <class>modelo.TblUsuariocl3</class>
 
         <properties>
             <!-- MySQL -->
